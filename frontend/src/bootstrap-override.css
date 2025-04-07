@@ -1,0 +1,191 @@
+/* Bootstrap overrides for dark mode */
+body.dark-mode {
+  --bs-body-bg: #242424 !important;
+  --bs-body-color: rgba(255, 255, 255, 0.87) !important;
+  --bs-dark: #121212 !important;
+  --bs-dark-rgb: 18, 18, 18 !important;
+  --bs-primary: #7e70ff !important;
+  --bs-primary-rgb: 126, 112, 255 !important;
+  --bs-border-color: #333 !important;
+  color-scheme: dark !important;
+}
+
+/* Override Bootstrap container backgrounds */
+body.dark-mode .container,
+body.dark-mode .container-fluid {
+  background-color: #242424 !important;
+}
+
+/* Override Bootstrap's bg-dark class */
+body.dark-mode .bg-dark {
+  background-color: #121212 !important;
+}
+
+/* Override light mode classes in dark mode */
+body.dark-mode .bg-light,
+body.dark-mode .navbar-light {
+  background-color: #1a1a1a !important;
+}
+
+/* For Bootstrap forms and inputs */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+  background-color: #2c2c2c !important;
+  border-color: #444 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+  border-color: var(--bs-primary) !important;
+  box-shadow: 0 0 0 0.25rem rgba(126, 112, 255, 0.25) !important;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+body.dark-mode .input-group-text {
+  background-color: #333 !important;
+  border-color: #444 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Override Bootstrap buttons */
+body.dark-mode .btn-dark {
+  background-color: #333 !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .btn-light {
+  background-color: #444 !important;
+  border-color: #555 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .btn-outline-dark {
+  color: #fff !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .btn-primary {
+  background-color: #7e70ff !important;
+  border-color: #6c5ce7 !important;
+}
+
+body.dark-mode .btn-primary:hover {
+  background-color: #6c5ce7 !important;
+  border-color: #5b4edb !important;
+}
+
+/* Make sure navbar dark is actually dark */
+body.dark-mode .navbar-dark,
+body.dark-mode .navbar {
+  background-color: #121212 !important;
+}
+
+/* Ensure navbar text is visible in both modes */
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link,
+.navbar-dark .navbar-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark-mode .navbar-light .navbar-brand,
+body.dark-mode .navbar-light .nav-link,
+body.dark-mode .navbar-light .navbar-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Ensure all text in dark mode is readable, but don't override all colors */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2, 
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .card,
+body.dark-mode label,
+body.dark-mode span {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Text colors */
+body.dark-mode .text-dark {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+body.dark-mode .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Modal and Card overrides */
+body.dark-mode .modal-content,
+body.dark-mode .card {
+  background-color: #1a1a1a !important;
+  border-color: #333 !important;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .card-header {
+  border-bottom-color: #333 !important;
+}
+
+body.dark-mode .modal-footer,
+body.dark-mode .card-footer {
+  border-top-color: #333 !important;
+}
+
+/* Table overrides */
+body.dark-mode .table {
+  color: rgba(255, 255, 255, 0.87) !important;
+  border-color: #333 !important;
+}
+
+body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+body.dark-mode .table thead th {
+  border-bottom-color: #333 !important;
+}
+
+/* Dropdown overrides */
+body.dark-mode .dropdown-menu {
+  background-color: #1a1a1a !important;
+  border-color: #333 !important;
+}
+
+body.dark-mode .dropdown-item {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+body.dark-mode .dropdown-item:hover,
+body.dark-mode .dropdown-item:focus {
+  background-color: rgba(126, 112, 255, 0.15) !important;
+}
+
+/* Light mode navbar overrides - ensure navbar text is visible in light mode */
+body:not(.dark-mode) .navbar-dark {
+  background-color: #f8f9fa !important;
+}
+
+body:not(.dark-mode) .navbar-dark .navbar-brand,
+body:not(.dark-mode) .navbar-dark .nav-link,
+body:not(.dark-mode) .navbar-dark .navbar-text {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+body:not(.dark-mode) .navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+body:not(.dark-mode) .navbar-dark .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+} 

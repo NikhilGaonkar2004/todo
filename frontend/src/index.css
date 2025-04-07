@@ -1,0 +1,173 @@
+:root {
+  /* Color Variables - Light Theme by default */
+  --primary-color: #646cff;
+  --primary-hover: #535bf2;
+  --background-color: #f8f9fa;
+  --text-color: #213547;
+  --card-background: #ffffff;
+  --border-color: #e0e0e0;
+  --error-color: #ff4444;
+  --success-color: #00C851;
+  --warning-color: #ffbb33;
+  --info-color: #33b5e5;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-bg: #ffffff;
+
+  /* Typography */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark Mode Class for manual toggling */
+body.dark-mode {
+  --background-color: #242424;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --card-background: #1a1a1a;
+  --border-color: #333;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --input-bg: #2c2c2c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: inherit;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--primary-hover);
+}
+
+body {
+  display: flex;
+  min-width: 320px;
+  width: 100%;
+}
+
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.2;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--card-background);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+button:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  button {
+    padding: 0.5em 1em;
+  }
+}
+
+/* System Preference Dark Mode - this will be overridden by the .dark-mode class if present */
+/* @media (prefers-color-scheme: dark) {
+  body:not(.light-mode) {  // Don't apply if light mode is manually set 
+    --background-color: #242424;
+    --text-color: rgba(255, 255, 255, 0.87);
+    --card-background: #1a1a1a;
+    --border-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --input-bg: #2c2c2c;
+  }
+} */
+
+/* Added utility classes */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}

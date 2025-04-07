@@ -1,0 +1,545 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms ease;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--primary-color));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--info-color));
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.read-the-docs {
+  color: var(--text-color);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.read-the-docs:hover {
+  opacity: 1;
+}
+
+/* Component Specific Styles */
+
+/* AllTask Component */
+.task-card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.task-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.task-card .card-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.task-card .card-body {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.task-card .btn {
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.delete-btn, .complete-btn {
+  padding: 0.4rem;
+}
+
+.delete-btn:hover {
+  background-color: var(--error-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.complete-btn:hover {
+  background-color: var(--success-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.empty-state {
+  color: var(--text-color);
+  opacity: 0.6;
+  padding: 3rem;
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.empty-state:hover {
+  opacity: 0.8;
+  border-color: var(--primary-color);
+}
+
+.empty-state i {
+  color: var(--info-color);
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+/* AddTask Component */
+.add-task-form {
+  padding: 2rem;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.add-task-form:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.form-label {
+  text-align: left;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.input-field {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+.input-field:focus {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
+  outline: none;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  text-align: left;
+  display: block;
+  font-weight: 500;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(83, 91, 242, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Header Component */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.navbar-logo {
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+.login-btn, .register-btn {
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.login-btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.login-btn:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(83, 91, 242, 0.3);
+}
+
+.register-btn {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: #1a1a1a;
+}
+
+.register-btn:hover {
+  background-color: #e0a800; /* Darker yellow */
+  border-color: #e0a800;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 187, 51, 0.3);
+}
+
+.nav-link, .dropdown-item {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.home-link:hover {
+  color: var(--primary-hover);
+}
+
+.dropdown-menu {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(100, 108, 255, 0.1);
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+  padding-top: 2rem;
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .card, .task-card, .add-task-form {
+    padding: 1.5rem;
+  }
+  
+  .task-card .card-heading {
+    font-size: 1.2rem;
+  }
+  
+  .submit-btn, .login-btn, .register-btn {
+    padding: 8px 16px;
+  }
+}
+
+/* Add this in the Header Component section */
+.theme-toggle {
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+}
+
+/* Ensure navbar styles respect CSS variables */
+.navbar-dark {
+  background-color: var(--card-background) !important; /* Use card background for contrast */
+}
+
+/* Light mode override for navbar with bg-dark class */
+body:not(.dark-mode) .bg-dark {
+  background-color: #f8f9fa !important;
+}
+
+body.dark-mode .navbar-dark {
+   background-color: #121212 !important; /* Keep specific darker bg for dark navbar */
+}
+
+/* Ensure dropdown uses variables */
+.dropdown-menu {
+  background-color: var(--card-background);
+}
+
+body.dark-mode .dropdown-menu {
+  background-color: #333; /* Keep specific darker bg for dark dropdown */
+}
+
+/* Task completion state styles */
+.task-card.completed:before {
+  background-color: var(--success-color);
+}
+
+.task-card.completed {
+  opacity: 0.8;
+}
+
+.task-card .card-heading.text-decoration-line-through {
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.task-card .completed-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--success-color);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Page header styles */
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.page-header h1 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.page-header p {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+/* Auth pages (login/register) */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  max-width: 450px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  background-color: var(--card-background);
+  transition: all 0.3s ease;
+}
+
+.auth-card .form-label {
+  text-align: left;
+  width: 100%;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.auth-card .form-control {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.auth-card .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
+  outline: none;
+}
+
+.auth-card .btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* Profile page styles */
+.profile-page {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.profile-header {
+  text-align: left;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Improved responsiveness */
+@media (max-width: 576px) {
+  #root {
+    padding: 1rem;
+  }
+  
+  .task-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .auth-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* App layout */
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding: 2rem;
+  }
+}
